@@ -1,19 +1,20 @@
 export interface Variant {
   id: string;
   name: string;
+  imageVariant: string;
 }
 
 export interface Product {
   id: string;
   step: number;
-  category: "Cameras" | "Sensors" | "Accessories" | "Plan";
+  category: "CAMERAS" | "SENSORS" | "ACCESSORIES" | "PLAN";
   title: string;
   description?: string;
   basePrice: number;
-  compareAtPrice?: number;
+  compareAtPrice: number | null;
   badge?: string;
   image: string;
-  variants: Variant[];
+  variants?: Variant[];
 }
 
 export interface CartItem {
@@ -21,7 +22,7 @@ export interface CartItem {
   variantId?: string;
   quantity: number;
   price: number;
-  compareAtPrice?: number;
+  compareAtPrice: number | null;
   title: string;
   image: string;
   category: string;

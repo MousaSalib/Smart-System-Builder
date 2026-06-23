@@ -1,1 +1,16 @@
 @import "tailwindcss";
+@import "./styles/fonts.css";
+
+@theme {
+    --color-bundle-bg: #EDF4FF;
+
+}
+
+body {
+    font-family: "Gilroy", sans-serif;
+}
+
+h1 {
+    font-family: "Gilroy", sans-serif;
+    font-weight: 600;
+}
