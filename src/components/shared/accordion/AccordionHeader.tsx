@@ -1,5 +1,5 @@
-import upIcon from "../../assets/icons/arrow-up.svg";
-import downIcon from "../../assets/icons/arrow-down.svg";
+import upIcon from "../../../assets/icons/arrow-up.svg";
+import downIcon from "../../../assets/icons/arrow-down.svg";
 
 interface AccordionHeaderProps {
   step: number;

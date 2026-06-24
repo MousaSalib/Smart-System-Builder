@@ -1,7 +1,7 @@
-import AccordionHeader from "../../shared/AccordionHeader";
+import AccordionHeader from "../../shared/accordion/AccordionHeader";
 import planIcon from "../../../assets/icons/plan.svg";
-import PlanCard from "../../childC/PlanCard";
-import NextButton from "../../shared/NextButton";
+import PlanCard from "../../childC/accordion/PlanCard";
+import NextButton from "../../shared/accordion/NextButton";
 
 interface PlanProps {
   isOpen: boolean;

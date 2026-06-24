@@ -1,8 +1,8 @@
-import AccordionHeader from "../../shared/AccordionHeader";
+import AccordionHeader from "../../shared/accordion/AccordionHeader";
 import cameraIcon from "../../../assets/icons/camera.svg";
-import CameraCard from "../../childC/CameraCard";
+import CameraCard from "../../childC/accordion/CameraCard";
 import { products } from "../../../data/products";
-import NextButton from "../../shared/NextButton";
+import NextButton from "../../shared/accordion/NextButton";
 
 interface CameraProps {
   isOpen: boolean;

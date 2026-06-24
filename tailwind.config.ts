@@ -5,6 +5,9 @@ export default {
       maxWidth: {
         bundle: "1213px",
       },
+      fontFamily: {
+        gilroy: ["Gilroy", "sans-serif"],
+      },
     },
   },
   plugins: [],

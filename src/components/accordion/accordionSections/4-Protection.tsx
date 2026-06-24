@@ -1,6 +1,6 @@
-import AccordionHeader from "../../shared/AccordionHeader";
+import AccordionHeader from "../../shared/accordion/AccordionHeader";
 import ProtectionIcon from "../../../assets/icons/protection.svg";
-import ProtectionCard from "../../childC/ProtectionCard";
+import ProtectionCard from "../../childC/accordion/ProtectionCard";
 
 interface ProtectionProps {
   isOpen: boolean;

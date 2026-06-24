@@ -1,7 +1,7 @@
-import AccordionHeader from "../../shared/AccordionHeader";
+import AccordionHeader from "../../shared/accordion/AccordionHeader";
 import SensorIcon from "../../../assets/icons/sensor.svg";
-import NextButton from "../../shared/NextButton";
-import SensorCard from "../../childC/SensorCard";
+import NextButton from "../../shared/accordion/NextButton";
+import SensorCard from "../../childC/accordion/SensorCard";
 
 interface SensorProps {
   isOpen: boolean;

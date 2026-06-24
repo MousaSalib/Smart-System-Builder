@@ -1,4 +1,6 @@
 import Accordion from "./components/accordion/Accordion";
+import ReviewPanel from "./components/reviewPanel/ReviewPanel";
+import ReviewPanelHeader from "./components/shared/reviewPanel/ReviewPanelHeader";
 
 export default function App() {
   return (
@@ -24,11 +26,9 @@ export default function App() {
               pb-[15px]
             "
           >
-            <h3 className="text-sm font-bold text-gray-900 mb-3">
-              Your security system
-            </h3>
-            <div className="rounded-xl p-12 text-center text-gray-400 font-bold">
-              [هنا سيتم بناء لوحة الفاتورة والمراجعة بالكامل]
+            {/* <ReviewPanelHeader /> */}
+            <div className="rounded-xl">
+              <ReviewPanel />
             </div>
           </aside>
         </div>
@@ -47,19 +47,16 @@ export default function App() {
           <aside
             className="
               w-[399px]
-              bg-bundle-bg
+            bg-bundle-bg
               rounded-[10px]
               pt-[15px]
               px-[15px]
               pb-[15px]
             "
           >
-            <h3 className="text-sm font-bold text-gray-900 mb-3">
-              Your security system
-            </h3>
-
-            <div className="rounded-xl p-12 text-center text-gray-400 font-bold">
-              [هنا سيتم بناء لوحة الفاتورة والمراجعة بالكامل]
+            {/* <ReviewPanelHeader /> */}
+            <div className="rounded-xl">
+              <ReviewPanel />
             </div>
           </aside>
         </div>
