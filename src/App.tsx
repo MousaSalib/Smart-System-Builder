@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import Accordion from "./components/accordion/Accordion";
 import ReviewPanel from "./components/reviewPanel/ReviewPanel";
 import ReviewPanelHeader from "./components/shared/reviewPanel/ReviewPanelHeader";
@@ -5,6 +6,7 @@ import ReviewPanelHeader from "./components/shared/reviewPanel/ReviewPanelHeader
 export default function App() {
   return (
     <div className="min-h-screen py-6 px-4 antialiased font-sans flex justify-center">
+      <ToastContainer position="top-center" autoClose={3000} theme="light" />
       <main className="w-full max-w-[1213px]">
         <div className="flex flex-col gap-[13px] md:hidden lg:flex">
           <section
@@ -26,7 +28,6 @@ export default function App() {
               pb-[15px]
             "
           >
-            {/* <ReviewPanelHeader /> */}
             <div className="rounded-xl">
               <ReviewPanel />
             </div>
@@ -54,7 +55,6 @@ export default function App() {
               pb-[15px]
             "
           >
-            {/* <ReviewPanelHeader /> */}
             <div className="rounded-xl">
               <ReviewPanel />
             </div>

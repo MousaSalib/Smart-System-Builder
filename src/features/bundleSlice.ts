@@ -55,7 +55,6 @@ const bundleSlice = createSlice({
     },
     saveSystem: (state) => {
       saveStateToStorage(state);
-      alert("Configuration saved successfully!");
     },
   },
 });
