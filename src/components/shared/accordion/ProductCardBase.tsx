@@ -5,11 +5,15 @@ import type { RootState } from "../../../features/store";
 import { updateQuantity } from "../../../features/bundleSlice";
 import QuantityStepper from "../../shared/accordion/QuantityStepper";
 
-interface CameraCardProps {
+interface ProductCardBaseProps {
   product: Product;
+  disableDecrease?: boolean;
 }
 
-export default function CameraCard({ product }: CameraCardProps) {
+export default function ProductCardBase({
+  product,
+  disableDecrease = false,
+}: ProductCardBaseProps) {
   const dispatch = useDispatch();
   const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -32,7 +36,7 @@ export default function CameraCard({ product }: CameraCardProps) {
   );
 
   const isSelected = Object.values(bundleItems).some(
-    (bundleItem: any) =>
+    (bundleItem) =>
       bundleItem.productId === product.id && bundleItem.quantity > 0,
   );
 
@@ -52,12 +56,17 @@ export default function CameraCard({ product }: CameraCardProps) {
             : product.title,
           image: currentVariant?.imageVariant ?? product.image,
           category: product.category,
+          required: product.required,
         },
       }),
     );
   };
 
   const decreaseQuantity = () => {
+    if (disableDecrease && quantity <= (product.minimumQuantity ?? 1)) {
+      return;
+    }
+
     dispatch(
       updateQuantity({
         productId: product.id,
@@ -73,6 +82,7 @@ export default function CameraCard({ product }: CameraCardProps) {
             : product.title,
           image: currentVariant?.imageVariant ?? product.image,
           category: product.category,
+          required: product.required,
         },
       }),
     );
@@ -117,7 +127,7 @@ export default function CameraCard({ product }: CameraCardProps) {
           "
         >
           <img
-            src={product.image}
+            src={currentVariant?.imageVariant ?? product.image}
             alt={product.title}
             className="
               w-[101px]

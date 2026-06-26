@@ -16,7 +16,6 @@ export default function ReviewCategorySection({
   );
 
   if (categoryItems.length === 0) return null;
-
   return (
     <div className="flex flex-col">
       <h3 className="text-[12px] font-normal uppercase tracking-[0.03em] text-[#7B8794]">
@@ -35,6 +34,7 @@ export default function ReviewCategorySection({
             quantity={item.quantity}
             price={item.price}
             compareAtPrice={item.compareAtPrice}
+            required={item.required}
           />
         ))}
       </div>

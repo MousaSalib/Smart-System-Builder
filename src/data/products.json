@@ -6,7 +6,7 @@
       "description": "The clearest Wyze Cam ever made.",
       "basePrice": 27.98,
       "compareAtPrice": 35.98,
-      "image": "/public/products/cam_1.svg",
+      "image": "/public/products/camera_1.webp",
       "category": "CAMERAS",
       "step": 1,
       "badge": "Save 22%",
@@ -14,17 +14,17 @@
         {
           "id": "white",
           "name": "White",
-          "imageVariant": "/public/variants/cam_1_white.svg"
+          "imageVariant": "/public/products/camera_1.webp"
         },
         {
           "id": "grey",
           "name": "Grey",
-          "imageVariant": "/public/variants/cam_1_gray.svg"
+          "imageVariant": "/public/variants/camera_1_grey.webp"
         },
         {
           "id": "black",
           "name": "Black",
-          "imageVariant": "/public/variants/cam_1_black.svg"
+          "imageVariant": "/public/variants/camera_1_black.webp"
         }
       ]
     },
@@ -34,7 +34,7 @@
       "description": "360° pan and 180° tilt security camera.",
       "basePrice": 34.98,
       "compareAtPrice": 39.98,
-      "image": "/public/products/cam_2.svg",
+      "image": "/public/products/camera_2.webp",
       "category": "CAMERAS",
       "step": 1,
       "badge": "Save 12%",
@@ -42,12 +42,12 @@
         {
           "id": "white",
           "name": "White",
-          "imageVariant": "/public/variants/cam_2_white.svg"
+          "imageVariant": "/public/products/camera_2.webp"
         },
         {
           "id": "black",
           "name": "Black",
-          "imageVariant": "/public/variants/cam_2_black.svg"
+          "imageVariant": "/public/variants/camera_2_black.webp"
         }
       ]
     },
@@ -57,19 +57,19 @@
       "description": "2K floodlight camera with a 160° wide-angle view for your garage.",
       "basePrice": 69.98,
       "compareAtPrice": 89.98,
-      "image": "/public/products/cam_3.svg",
+      "image": "/public/products/camera_3.webp",
       "category": "CAMERAS",
       "step": 1,
       "variants": [
         {
           "id": "white",
           "name": "White",
-          "imageVariant": "/public/variants/cam_3_white.svg"
+          "imageVariant": "/public/products/camera_3.webp"
         },
         {
           "id": "black",
           "name": "Black",
-          "imageVariant": "/public/variants/cam_3_black.svg"
+          "imageVariant": "/public/variants/camera_3_black.webp"
         }
       ]
     },
@@ -79,7 +79,7 @@
       "description": "Two cameras. Two views. Double the porch protection.",
       "basePrice": 69.98,
       "compareAtPrice": null,
-      "image": "/public/products/cam_4.svg",
+      "image": "/public/products/camera_4.webp",
       "category": "CAMERAS",
       "step": 1,
       "badge": "Save 33%"
@@ -90,7 +90,7 @@
       "description": "Protect anywhere. See everything in 2.5K HDR. No power outlet or electrician needed.",
       "basePrice": 89.98,
       "compareAtPrice": null,
-      "image": "/public/products/cam_5.svg",
+      "image": "/public/products/camera_5.webp",
       "category": "CAMERAS",
       "step": 1,
       "badge": "Save 10%",
@@ -98,24 +98,57 @@
         {
           "id": "white",
           "name": "White",
-          "imageVariant": "/public/variants/cam_5_white.svg"
+          "imageVariant": "/public/products/camera_5.webp"
         },
         {
           "id": "black",
           "name": "Black",
-          "imageVariant": "/public/variants/cam_5_black.svg"
+          "imageVariant": "/public/variants/camera_5_black.webp"
         }
       ]
     },
     {
-      "id": "cam-unlimited",
+      "id": "cam-unlimited-pro",
       "title": "Cam Unlimited",
-      "description": "Unlimited cloud recording and smart alerts.",
+      "description": "Unlimited cloud storage and smart alerts for all your cameras.",
       "basePrice": 9.99,
       "compareAtPrice": 12.99,
-      "image": "/products/plan_1.svg",
+      "image": "/public/review/plan.svg",
       "category": "PLAN",
-      "step": 2
+      "step": 2,
+      "required": true
+    },
+    {
+      "id": "motion-sensor",
+      "title": "Wyze Sense Hub",
+      "description": "The central hub that connects and manages your Wyze security devices.",
+      "basePrice": 0,
+      "compareAtPrice": 29.92,
+      "image": "/public/products/sensor_2.webp",
+      "category": "SENSORS",
+      "step": 3,
+      "required": true,
+      "minimumQuantity": 1
+    },
+    {
+      "id": "entry-sensor",
+      "title": "Wyze Sense Motion Sensor",
+      "description": "Detect motion instantly and trigger alerts when activity is detected.",
+      "basePrice": 59.98,
+      "compareAtPrice": null,
+      "image": "/public/products/sensor_1.webp",
+      "category": "SENSORS",
+      "step": 3
+    },
+    {
+      "id": "keypad",
+      "title": "Wyze MicroSD Card (256GB)",
+      "description": "Store continuous recordings locally with up to 256GB of storage.",
+      "basePrice": 41.96,
+      "compareAtPrice": null,
+      "image": "/public/products/accessories.webp",
+      "category": "ACCESSORIES",
+      "step": 4
     }
   ]
 }

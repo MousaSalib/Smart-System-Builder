@@ -1,5 +1,15 @@
 import type { RootState } from "./store";
 
+export const selectSelectedCountByCategory =
+  (category: string) => (state: RootState) => {
+    const uniqueProducts = new Set(
+      Object.values(state.bundle.items)
+        .filter((item) => item.category === category && item.quantity > 0)
+        .map((item) => item.productId),
+    );
+
+    return uniqueProducts.size;
+  };
 export const selectCartItems = (state: RootState) =>
   Object.values(state.bundle.items);
 

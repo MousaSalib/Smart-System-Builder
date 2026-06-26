@@ -14,6 +14,8 @@ export interface Product {
   compareAtPrice: number | null;
   badge?: string;
   image: string;
+  required?: boolean;
+  minimumQuantity?: number;
   variants?: Variant[];
 }
 
@@ -26,6 +28,7 @@ export interface CartItem {
   title: string;
   image: string;
   category: string;
+  required?: boolean;
 }
 
 export interface BundleState {

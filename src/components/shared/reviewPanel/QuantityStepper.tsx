@@ -11,10 +11,24 @@ export default function QuantityStepper({
   onDecrease,
   isRequired = false,
 }: QuantityStepperProps) {
+  const disabledButtons = isRequired;
+
   return (
-    <div className="flex items-center justify-between w-[80px] h-[28px] py-[4px] gap-[10px] rounded-[4px]">
+    <div
+      className="
+        flex
+        items-center
+        justify-between
+        w-[72px]
+        h-[28px]
+        py-[4px]
+        rounded-[4px]
+        lg:w-[80px]
+      "
+    >
       <button
         onClick={onDecrease}
+        disabled={disabledButtons}
         className={`
           w-[20px]
           h-[20px]
@@ -22,8 +36,12 @@ export default function QuantityStepper({
           flex
           items-center
           justify-center
-          cursor-pointer
-          ${isRequired ? "bg-[#F1F1F2] border border-[#CED6DE]" : "bg-[#FFFFFF]"}
+          transition-all
+          ${
+            disabledButtons
+              ? "bg-[#F1F1F2] border border-[#CED6DE] text-[#A0A0A0] cursor-not-allowed"
+              : "bg-[#FFFFFF] cursor-pointer hover:bg-gray-100"
+          }
         `}
       >
         -
@@ -33,15 +51,20 @@ export default function QuantityStepper({
 
       <button
         onClick={onIncrease}
+        disabled={disabledButtons}
         className={`
           w-[20px]
           h-[20px]
           rounded-[4px]
           flex
           items-center
-          justify-center 
-          cursor-pointer
-          ${isRequired ? "bg-[#F1F1F2] border border-[#CED6DE]" : "bg-[#FFFFFF]"}
+          justify-center
+          transition-all
+          ${
+            disabledButtons
+              ? "bg-[#F1F1F2] border border-[#CED6DE] text-[#A0A0A0] cursor-not-allowed"
+              : "bg-[#FFFFFF] cursor-pointer hover:bg-gray-100"
+          }
         `}
       >
         +

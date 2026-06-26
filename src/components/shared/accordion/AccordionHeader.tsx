@@ -34,7 +34,7 @@ export default function AccordionHeader({
         Step {step} of 4
       </span>
       <div className="h-px bg-[#484848] -mx-4 md:-mx-6" />
-      <div className="mt-[25px] lg:mt-[20px] flex items-center justify-between">
+      <div className="pt-[25px] lg:pt-[20px] flex items-center justify-between">
         <div className="flex items-center gap-[2px] lg:gap-[1px]">
           <img
             src={icon}
