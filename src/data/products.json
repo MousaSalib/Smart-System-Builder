@@ -113,7 +113,7 @@
       "description": "Unlimited cloud storage and smart alerts for all your cameras.",
       "basePrice": 9.99,
       "compareAtPrice": 12.99,
-      "image": "/public/review/plan.svg",
+      "image": "/public/products/plan_1.svg",
       "category": "PLAN",
       "step": 2,
       "required": true
@@ -148,7 +148,9 @@
       "compareAtPrice": null,
       "image": "/public/products/accessories.webp",
       "category": "ACCESSORIES",
-      "step": 4
+      "step": 4,
+      "required": true,
+      "minimumQuantity": 1
     }
   ]
 }

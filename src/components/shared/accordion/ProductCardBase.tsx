@@ -1,92 +1,37 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import type { Product } from "../../../types";
-import type { RootState } from "../../../features/store";
-import { updateQuantity } from "../../../features/bundleSlice";
 import QuantityStepper from "../../shared/accordion/QuantityStepper";
+import { useProductQuantity } from "../../../hooks/useProductQuantity";
+import { useProductCardState } from "../../../hooks/useProductCardState";
 
 interface ProductCardBaseProps {
   product: Product;
   disableDecrease?: boolean;
+  disableIncrease?: boolean;
 }
 
 export default function ProductCardBase({
   product,
   disableDecrease = false,
+  disableIncrease = false,
 }: ProductCardBaseProps) {
-  const dispatch = useDispatch();
-  const [showFullDescription, setShowFullDescription] = useState(false);
-
-  const [selectedVariant, setSelectedVariant] = useState(
-    product.variants?.[0]?.id,
-  );
-
-  const bundleItems = useSelector((state: RootState) => state.bundle.items);
-
-  const itemKey = selectedVariant
-    ? `${product.id}-${selectedVariant}`
-    : product.id;
-
-  const item = bundleItems[itemKey];
-
-  const quantity = item?.quantity ?? 0;
-
-  const currentVariant = product.variants?.find(
-    (variant) => variant.id === selectedVariant,
-  );
-
-  const isSelected = Object.values(bundleItems).some(
-    (bundleItem) =>
-      bundleItem.productId === product.id && bundleItem.quantity > 0,
-  );
-
-  const increaseQuantity = () => {
-    dispatch(
-      updateQuantity({
-        productId: product.id,
-        variantId: selectedVariant,
-        quantity: quantity + 1,
-        productDetails: {
-          productId: product.id,
-          variantId: selectedVariant,
-          price: product.basePrice,
-          compareAtPrice: product.compareAtPrice,
-          title: selectedVariant
-            ? `${product.title} (${currentVariant?.name})`
-            : product.title,
-          image: currentVariant?.imageVariant ?? product.image,
-          category: product.category,
-          required: product.required,
-        },
-      }),
-    );
-  };
-
-  const decreaseQuantity = () => {
-    if (disableDecrease && quantity <= (product.minimumQuantity ?? 1)) {
-      return;
-    }
-
-    dispatch(
-      updateQuantity({
-        productId: product.id,
-        variantId: selectedVariant,
-        quantity: quantity - 1,
-        productDetails: {
-          productId: product.id,
-          variantId: selectedVariant,
-          price: product.basePrice,
-          compareAtPrice: product.compareAtPrice,
-          title: selectedVariant
-            ? `${product.title} (${currentVariant?.name})`
-            : product.title,
-          image: currentVariant?.imageVariant ?? product.image,
-          category: product.category,
-          required: product.required,
-        },
-      }),
-    );
-  };
+  const {
+    showFullDescription,
+    toggleDescription,
+    selectedVariant,
+    setSelectedVariant,
+  } = useProductCardState(product);
+  const {
+    quantity,
+    currentVariant,
+    isSelected,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useProductQuantity({
+    product,
+    selectedVariant,
+    disableDecrease,
+    disableIncrease,
+  });
 
   return (
     <div
@@ -115,9 +60,9 @@ export default function ProductCardBase({
           lg:flex-col
         "
       >
-        {/* image */}
         <div
           className="
+            relative
             shrink-0
             flex
             justify-center
@@ -126,6 +71,33 @@ export default function ProductCardBase({
             lg:w-full
           "
         >
+          {product.badge && (
+            <span
+              className="
+                absolute
+                top-[4px]
+                left-[4px]
+                z-10 
+                h-[19px]
+                min-w-[63px]
+                px-[6px]
+                py-[2px]
+                rounded-[10px]
+                bg-[#4E2FD2]
+                flex
+                items-center
+                justify-center
+                text-white
+                text-[12px]
+                font-semibold
+                leading-none
+                whitespace-nowrap
+              "
+            >
+              {product.badge}
+            </span>
+          )}
+
           <img
             src={currentVariant?.imageVariant ?? product.image}
             alt={product.title}
@@ -167,7 +139,7 @@ export default function ProductCardBase({
             </span>
 
             <button
-              onClick={() => setShowFullDescription(!showFullDescription)}
+              onClick={toggleDescription}
               className="
                 text-[12px]
                 leading-[130%]

@@ -18,7 +18,7 @@ export default function Plan({ isOpen, onToggle, onNext }: PlanProps) {
         step={2}
         icon={planIcon}
         title="Choose your plan"
-        selectedCount={3}
+        selectedCount={1}
         isOpen={isOpen}
         onToggle={onToggle}
       />

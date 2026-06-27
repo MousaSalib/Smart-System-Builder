@@ -1,6 +1,5 @@
 import AccordionHeader from "../../shared/accordion/AccordionHeader";
 import cameraIcon from "../../../assets/icons/camera.svg";
-import CameraCard from "../../childC/accordion/CameraCard";
 import { products } from "../../../data/products";
 import NextButton from "../../shared/accordion/NextButton";
 import { useSelector } from "react-redux";

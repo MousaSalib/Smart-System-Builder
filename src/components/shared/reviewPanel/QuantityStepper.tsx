@@ -3,6 +3,7 @@ interface QuantityStepperProps {
   onIncrease: () => void;
   onDecrease: () => void;
   isRequired?: boolean;
+  category?: string;
 }
 
 export default function QuantityStepper({
@@ -10,8 +11,9 @@ export default function QuantityStepper({
   onIncrease,
   onDecrease,
   isRequired = false,
+  category,
 }: QuantityStepperProps) {
-  const disabledButtons = isRequired;
+  const disabledButtons = isRequired && category === "SENSORS";
 
   return (
     <div

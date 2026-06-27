@@ -1,6 +1,5 @@
-import { useDispatch } from "react-redux";
 import QuantityStepper from "../../shared/reviewPanel/QuantityStepper";
-import { updateQuantity } from "../../../features/bundleSlice";
+import { useReviewItemActions } from "../../../hooks/useReviewItemActions";
 
 interface ReviewItemProps {
   productId: string;
@@ -25,47 +24,18 @@ export default function ReviewItem({
   compareAtPrice,
   required = false,
 }: ReviewItemProps) {
-  const dispatch = useDispatch();
+  const { handleIncrease, handleDecrease } = useReviewItemActions({
+    productId,
+    variantId,
+    category,
+    image,
+    title,
+    quantity,
+    price,
+    compareAtPrice,
+    required,
+  });
 
-  const handleIncrease = () => {
-    dispatch(
-      updateQuantity({
-        productId,
-        variantId,
-        quantity: quantity + 1,
-        productDetails: {
-          productId,
-          variantId,
-          price,
-          compareAtPrice,
-          title,
-          image,
-          category,
-          required,
-        },
-      }),
-    );
-  };
-
-  const handleDecrease = () => {
-    dispatch(
-      updateQuantity({
-        productId,
-        variantId,
-        quantity: quantity - 1,
-        productDetails: {
-          productId,
-          variantId,
-          price,
-          compareAtPrice,
-          title,
-          image,
-          category,
-          required,
-        },
-      }),
-    );
-  };
   return (
     <>
       <div className="flex items-center gap-[10px] w-full min-w-0">
@@ -106,12 +76,15 @@ export default function ReviewItem({
           lg:gap-[16px]
         "
         >
-          <QuantityStepper
-            quantity={quantity}
-            onIncrease={handleIncrease}
-            onDecrease={handleDecrease}
-            isRequired={required}
-          />
+          {category !== "PLAN" && (
+            <QuantityStepper
+              quantity={quantity}
+              onIncrease={handleIncrease}
+              onDecrease={handleDecrease}
+              isRequired={required}
+              category={category}
+            />
+          )}
 
           <div
             className="

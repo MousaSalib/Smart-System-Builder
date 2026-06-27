@@ -16,7 +16,7 @@ export default function Protection({ isOpen, onToggle }: ProtectionProps) {
         step={4}
         icon={ProtectionIcon}
         title="Add extra protection"
-        selectedCount={3}
+        selectedCount={0}
         isOpen={isOpen}
         onToggle={onToggle}
       />

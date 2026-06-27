@@ -8,6 +8,9 @@ export default function App() {
       <ToastContainer position="top-center" autoClose={3000} theme="light" />
       <div className="block md:hidden">
         <main className="w-full max-w-[1213px] mx-auto">
+          <div className="lg:hidden w-full max-w-[348px] h-[35px] mx-auto text-center text-[#1F1F1F] text-[31.88px] leading-[110%] tracking-[-0.06px] font-bold">
+            Let's get started!
+          </div>
           <div className="flex flex-col gap-[13px]">
             <section className="rounded-[10px] pt-[15px] px-[15px] pb-[15px]">
               <Accordion />
