@@ -1,8 +1,17 @@
 # Smart System Builder
 
+## Live Demo
+
+🔗 **Production Deployment:**
+https://smart-system-builder.vercel.app/
+
+---
+
+## Overview
+
 A responsive multi-step security system bundle builder built with **React**, **TypeScript**, and **Tailwind CSS**.
 
-This project was developed as part of the EcomExperts Frontend Developer React Coding Exercise and recreates the provided Figma design while focusing on scalability, maintainability, and production-quality frontend architecture.
+This project was developed as part of the **EcomExperts Frontend Developer React Coding Exercise** and recreates the provided Figma design while focusing on scalability, maintainability, and production-quality frontend architecture.
 
 ---
 
@@ -88,7 +97,7 @@ The review panel also contains:
 
 Users can save their configured system for later.
 
-The application stores the current bundle configuration using browser local storage allowing the user to:
+The application stores the current bundle configuration using **redux-persist** allowing the user to:
 
 * Leave the page
 * Refresh the browser
@@ -117,6 +126,7 @@ Desktop layouts closely follow the original Figma design while smaller viewports
 * Tailwind CSS
 * Redux Toolkit
 * React Redux
+* Redux Persist
 * React Toastify
 * Vite
 
@@ -128,16 +138,19 @@ Desktop layouts closely follow the original Figma design while smaller viewports
 src
 │
 ├── assets
+├── data
+├── features
 ├── hooks
-├── store
+├── styles
 ├── types
 ├── ui
 │   ├── accordion
-│   ├── components
+│   ├── components   
+│   ├── layout
 │   ├── reviewPanel
 │   └── shared
 │
-└── features
+└── types
 ```
 
 ---
@@ -164,6 +177,10 @@ instead of:
 import ReviewPanel from "../../../../ui/reviewPanel/ReviewPanel";
 ```
 
+### State Persistence
+
+Application state persistence is handled using **redux-persist**, providing a clean and scalable persistence layer without requiring manual localStorage synchronization.
+
 ---
 
 ## Installation
@@ -171,7 +188,7 @@ import ReviewPanel from "../../../../ui/reviewPanel/ReviewPanel";
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/MousaSalib/Smart-System-Builder.git
 ```
 
 Install dependencies:
