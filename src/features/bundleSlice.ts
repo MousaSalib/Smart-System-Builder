@@ -1,31 +1,15 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { BundleState, CartItem } from "@/types";
 
-const loadInitialState = (): BundleState => {
-  if (typeof window !== "undefined") {
-    const saved = localStorage.getItem("smart_builder_system");
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (err) {
-        console.error("Error loading saved bundle", err);
-      }
-    }
-  }
-  return {
-    items: {},
-    activeStep: 1,
-  };
-};
-
-const initialState: BundleState = loadInitialState();
-const saveStateToStorage = (state: BundleState) => {
-  localStorage.setItem("smart_builder_system", JSON.stringify(state));
+const initialState: BundleState = {
+  items: {},
+  activeStep: 1,
 };
 
 const bundleSlice = createSlice({
   name: "bundle",
   initialState,
+
   reducers: {
     updateQuantity: (
       state,
@@ -37,6 +21,7 @@ const bundleSlice = createSlice({
       }>,
     ) => {
       const { productId, variantId, quantity, productDetails } = action.payload;
+
       const itemKey = variantId ? `${productId}-${variantId}` : productId;
 
       if (quantity <= 0) {
@@ -47,17 +32,14 @@ const bundleSlice = createSlice({
           quantity,
         };
       }
-      saveStateToStorage(state);
     },
+
     setStep: (state, action: PayloadAction<number>) => {
       state.activeStep = action.payload;
-      saveStateToStorage(state);
-    },
-    saveSystem: (state) => {
-      saveStateToStorage(state);
     },
   },
 });
 
-export const { updateQuantity, setStep, saveSystem } = bundleSlice.actions;
+export const { updateQuantity, setStep } = bundleSlice.actions;
+
 export default bundleSlice.reducer;

@@ -26,7 +26,7 @@ export default function MainLayout() {
             <section className="w-[768px] rounded-[10px] shrink-0">
               <Accordion />
             </section>
-            <aside className="w-[399px] px-[15px] pb-[15px] shrink-0">
+            <aside className="w-[399px] px-[15px] pb-[15px] shrink-0 mt-[15px]">
               <ReviewPanel />
             </aside>
           </div>
