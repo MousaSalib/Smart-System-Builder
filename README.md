@@ -1,73 +1,226 @@
-# React + TypeScript + Vite
+# Smart System Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive multi-step security system bundle builder built with **React**, **TypeScript**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+This project was developed as part of the EcomExperts Frontend Developer React Coding Exercise and recreates the provided Figma design while focusing on scalability, maintainability, and production-quality frontend architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Multi-Step Bundle Builder
 
-## Expanding the ESLint configuration
+The application guides users through a four-step configuration process:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Choose Cameras
+2. Choose a Subscription Plan
+3. Choose Sensors
+4. Add Extra Protection
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Each step includes:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Expand/collapse accordion behavior
+* Selected item counters
+* Progress navigation
+* Step-to-step transitions
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+### Product Configuration
+
+Each product card supports:
+
+* Dynamic pricing
+* Compare-at pricing
+* Discount badges
+* Quantity selection
+* Variant selection
+* Product descriptions
+* Optional color or model variations
+
+Cards automatically enter a selected state when their quantity becomes greater than zero.
+
+---
+
+### Variant Quantity Management
+
+Products with variants maintain independent quantities for each variant.
+
+Example:
+
+* Add 2 Red Cameras
+* Switch to Blue Camera
+* Blue quantity starts from 0
+* Red Cameras remain selected and appear in the review panel
+
+Each selected variant appears as an independent item inside the review panel.
+
+---
+
+### Live Review Panel
+
+The review panel updates in real time and includes:
+
+* Cameras
+* Sensors
+* Accessories
+* Plans
+
+For each item the panel displays:
+
+* Product thumbnail
+* Quantity controls
+* Pricing
+* Variant information
+
+The review panel also contains:
+
+* Shipping information
+* Satisfaction guarantee section
+* Financing information
+* Savings information
+* Checkout section
+* Total calculations
+
+---
+
+### Persistent Configuration
+
+Users can save their configured system for later.
+
+The application stores the current bundle configuration using browser local storage allowing the user to:
+
+* Leave the page
+* Refresh the browser
+* Return later
+
+and continue from exactly where they left off.
+
+---
+
+## Responsive Design
+
+The application was designed to remain fully functional across multiple screen sizes:
+
+* Mobile devices
+* Tablets
+* Desktop screens
+
+Desktop layouts closely follow the original Figma design while smaller viewports adapt to provide a usable experience.
+
+---
+
+## Tech Stack
+
+* React 19
+* TypeScript
+* Tailwind CSS
+* Redux Toolkit
+* React Redux
+* React Toastify
+* Vite
+
+---
+
+## Project Structure
+
+```text
+src
+│
+├── assets
+├── hooks
+├── store
+├── types
+├── ui
+│   ├── accordion
+│   ├── components
+│   ├── reviewPanel
+│   └── shared
+│
+└── features
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Architecture Decisions
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Data Driven UI
+
+The entire interface is rendered from structured product data rather than hardcoded components, making the application easily scalable and maintainable.
+
+### Path Aliases
+
+The project uses path aliases to avoid deep relative imports.
+
+Example:
+
+```ts
+import ReviewPanel from "@/ui/reviewPanel/ReviewPanel";
 ```
+
+instead of:
+
+```ts
+import ReviewPanel from "../../../../ui/reviewPanel/ReviewPanel";
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build the production version:
+
+```bash
+npm run build
+```
+
+Preview production build:
+
+```bash
+npm run preview
+```
+
+---
+
+## Trade-offs
+
+* Product data is currently provided through local JSON objects instead of a backend API.
+* Checkout functionality is intentionally mocked as the focus of the exercise is the bundle builder experience.
+* Some visual micro-interactions were simplified in favor of maintainability and readability.
+
+---
+
+## Future Improvements
+
+* Backend API integration
+* User authentication
+* Saved bundle history
+* Animation improvements
+* Unit and integration tests
+* Server-side persistence
+
+---
+
+## Author
+
+**Mousa Salib**
+
+Frontend Developer specializing in React, TypeScript, and modern frontend architecture.
