@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { updateQuantity } from "../features/bundleSlice";
+import { updateQuantity } from "@/features/bundleSlice";
 
 interface Params {
   productId: string;

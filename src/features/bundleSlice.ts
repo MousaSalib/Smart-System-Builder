@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { BundleState, CartItem } from "../types";
+import type { BundleState, CartItem } from "@/types";
 
 const loadInitialState = (): BundleState => {
   if (typeof window !== "undefined") {

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import type { Product } from "../types";
-
+import type { Product } from "@/types";
 export function useProductCardState(product: Product) {
   const [showFullDescription, setShowFullDescription] = useState(false);
 

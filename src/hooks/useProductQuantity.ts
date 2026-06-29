@@ -1,7 +1,7 @@
+import { updateQuantity } from "@/features/bundleSlice";
+import type { RootState } from "@/features/store";
+import type { Product } from "@/types";
 import { useDispatch, useSelector } from "react-redux";
-import type { Product } from "../types";
-import type { RootState } from "../features/store";
-import { updateQuantity } from "../features/bundleSlice";
 
 interface UseProductQuantityProps {
   product: Product;
@@ -9,7 +9,6 @@ interface UseProductQuantityProps {
   disableDecrease?: boolean;
   disableIncrease?: boolean;
 }
-
 export function useProductQuantity({
   product,
   selectedVariant,

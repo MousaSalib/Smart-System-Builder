@@ -1,4 +1,4 @@
-import type { RootState } from "./store";
+import type { RootState } from "@/features/store";
 
 export const selectSelectedCountByCategory =
   (category: string) => (state: RootState) => {
